@@ -1,4 +1,4 @@
-FROM debian:10
+FROM debian:11
 
 LABEL maintainer="Oliver Kett <spam@broken-wire.de>"
 
@@ -10,5 +10,5 @@ RUN apt update && \
   apt upgrade -y && \
   apt install -y python3-pip openssh-client && \
   pip3 install ansible lxml jxmlease junos-eznc netaddr && \
-  ansible-galaxy collection install junipernetworks.junos && \
+  ansible-galaxy collection install junipernetworks.junos ansible.utils ansible.netcommon && \
   apt-get clean 
